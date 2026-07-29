@@ -1,16 +1,23 @@
+<?php 
+require_once 'rodape.php'; 
+?>
 <!DOCTYPE html>
-<html>
-
+<html lang="pt-br">
 <head>
-    <title>loja</title>
+    <meta charset="UTF-8">
+    <title>calculo de gorjeta</title>
 </head>
-
 <body>
-    <?php define("NOME_LOJA", "lojinha fodinha");
-    $nome = "cocacola";
-    $preco = "20";
-    $compra = "2";
-    $total = $preco * $compra;
-    echo "compra na " . NOME_LOJA . " onde comprei apenas $compra de $nome a cada uma saindo $preco ficando ao todo $total"
-    ?>
+    <h2>calculo</h2>
+    <form action="calculogorjeta.php" method="post">
+        <label>gorjeta</label><br>
+        <input type="number" name="quantia" required><br><br>
+        <button type="submit">calcular</button>
+</formm>
+    <footer>
+        <hr>
+        <h6><?php rodape(); ?></h6>   
+    </footer>
+
 </body>
+</html>
