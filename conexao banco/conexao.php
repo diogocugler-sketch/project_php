@@ -8,7 +8,7 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8mb4", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    echo "<h1>Conexão realizada com sucesso! 🎉</h1>";
+    echo "<h1>deu certo a conexao</h1>";
 
 } catch (PDOException $e) {
     echo "<h1>Erro de Conexão:</h1>";
