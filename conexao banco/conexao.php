@@ -8,14 +8,12 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8mb4", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    echo "<h1>deu certo a conexao</h1>";
+    function buscarProduto($conexao, $id) {
+        $stmt = $conexao->prepare("SELECT * FROM produtos WHERE id = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
 } catch (PDOException $e) {
-    echo "<h1>Erro de Conexão:</h1>";
-    echo "<p>" . $e->getMessage() . "</p>";
-    exit;
-}
-function buscarProduto($id) {
-    global $pdo;
-    return $pdo->query("SELECT * FROM produtos WHERE id = $id")->fetch(PDO::FETCH_ASSOC);
+    die("Erro de Conexão: " . $e->getMessage());
 }
